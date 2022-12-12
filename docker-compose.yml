@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "localhost"
+    ports:
+      - 27017:27017
+  api:
+    image: api-docker-image
+    ports:
+      - 9091:8080
+    links:
+      - mongodb
