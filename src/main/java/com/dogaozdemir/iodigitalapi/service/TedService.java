@@ -9,10 +9,10 @@ import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 
 
+import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.domain.PageRequest;
@@ -34,15 +34,16 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class TedService {
 
     private static final Logger LOG = LoggerFactory.getLogger(TedService.class);
 
-    @Autowired
+
     private ResourceLoader resourceLoader;
-    @Autowired
+
     private TedRepository tedRepository;
-    @Autowired
+
     private MongoTemplate mongoTemplate;
 
     final Pageable pageableRequest = PageRequest.of(0, 30);
